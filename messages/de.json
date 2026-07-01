@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "about": "Über uns",
+    "teams": "Teams",
+    "news": "News",
+    "partners": "Partner",
+    "contact": "Kontakt",
+    "discord": "Discord"
+  },
+
+  "hero": {
+    "title": "KNOWN UNKNOWN",
+    "subtitle": "Built to compete. Ready to conquer.",
+    "discord": "Discord beitreten",
+    "teams": "Unsere Teams"
+  }
+}
