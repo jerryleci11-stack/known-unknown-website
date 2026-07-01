@@ -7,10 +7,10 @@ export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
 
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(124,58,237,.18),transparent_55%)]" />
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#09090b] via-[#0d0718] to-black" />
 
-      {/* Animated Glow */}
+      {/* Center Glow */}
       <motion.div
         animate={{
           scale: [1, 1.15, 1],
@@ -21,7 +21,35 @@ export default function Hero() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute h-[650px] w-[650px] rounded-full bg-violet-700 blur-[140px]"
+        className="absolute h-[900px] w-[900px] rounded-full bg-violet-600/30 blur-[180px]"
+      />
+
+      {/* Top Left Glow */}
+      <motion.div
+        animate={{
+          x: [0, 40, 0],
+          y: [0, -30, 0],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -left-40 top-0 h-[500px] w-[500px] rounded-full bg-fuchsia-600/20 blur-[150px]"
+      />
+
+      {/* Bottom Right Glow */}
+      <motion.div
+        animate={{
+          x: [0, -40, 0],
+          y: [0, 30, 0],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full bg-violet-500/20 blur-[150px]"
       />
 
       {/* Grid */}
@@ -34,13 +62,14 @@ export default function Hero() {
         }}
       />
 
+      {/* Content */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="relative z-10 flex flex-col items-center text-center px-6"
+        className="relative z-10 flex flex-col items-center px-6 text-center"
       >
-
+        {/* Logo */}
         <motion.div
           animate={{
             y: [0, -10, 0],
@@ -54,38 +83,34 @@ export default function Hero() {
           <Image
             src="/images/logo.png"
             alt="Known Unknown"
-            width={180}
-            height={180}
+            width={260}
+            height={260}
             priority
-            className="drop-shadow-[0_0_80px_rgba(124,58,237,.8)]"
+            className="drop-shadow-[0_0_120px_rgba(124,58,237,.9)]"
           />
         </motion.div>
 
+        {/* Title */}
         <motion.h1
           initial={{ opacity: 0, letterSpacing: "0.6em" }}
           animate={{ opacity: 1, letterSpacing: "0.28em" }}
-          transition={{ delay: .3, duration: 1 }}
-          className="mt-10 text-6xl font-black uppercase md:text-8xl"
+          transition={{ delay: 0.3, duration: 1 }}
+          className="mt-10 text-center text-7xl font-black uppercase leading-none tracking-[0.28em] md:text-9xl"
         >
           Known
           <br />
           Unknown
         </motion.h1>
 
-        <p className="mt-8 text-xl text-gray-300">
+        {/* Subtitle */}
+        <p className="mt-8 max-w-2xl text-center text-lg leading-8 text-gray-300 md:text-xl">
           League of Legends Organization
+          <br />
+          Prime League • Since 2021 • Community Driven
         </p>
 
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-sm uppercase tracking-[0.25em] text-violet-300">
-          <span>Prime League</span>
-          <span>•</span>
-          <span>Since 2021</span>
-          <span>•</span>
-          <span>Community Driven</span>
-        </div>
-
+        {/* Buttons */}
         <div className="mt-12 flex flex-wrap justify-center gap-5">
-
           <a
             href="https://discord.gg/UAwyyfJnm"
             target="_blank"
@@ -101,24 +126,26 @@ export default function Hero() {
           >
             Our Teams
           </a>
-
         </div>
 
+        {/* Scroll Indicator */}
         <motion.div
-          animate={{
-            y: [0, 10, 0],
-          }}
+          animate={{ y: [0, 10, 0] }}
           transition={{
             repeat: Infinity,
             duration: 2,
           }}
-          className="mt-24 text-gray-500"
+          className="mt-24 flex flex-col items-center text-gray-500"
         >
-          ↓ Scroll
+          <span className="text-xs uppercase tracking-[0.3em]">
+            Scroll Down
+          </span>
+
+          <span className="mt-2 text-2xl">
+            ↓
+          </span>
         </motion.div>
-
       </motion.div>
-
     </section>
   );
 }
